@@ -1,0 +1,178 @@
+!!! 5
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
+    %title Jérôme Mahuet
+    %meta{:content => "My name is Jérôme Mahuet, I am a twenty-five year-old developer.", :name => "description"}
+    %meta{:content => "Jérôme Mahuet", :name => "author"}
+    %meta{:content => "KPTwyDiLP2gAGP1U-jTyHS0qFUhCmEbPIjmiNlUF-zU", :name => "google-site-verification"}
+    %meta{:content => "width=device-width", :name => "viewport"}
+  
+    %link{:href => "/css/style.min.css", :rel => "stylesheet"}
+    %script{:src => "/js/libs/modernizr.min.js"}
+  
+  %body
+    .container{:role => "wrapper"}
+    
+      %header.container{:role => "main-header"}
+        %h1.two.columns
+          %a{:href => "/", :title => "Jérôme Mahuet"}
+            %img{:alt => "Jérôme Mahuet", :src => "/images/logo.png"}
+        .five.columns.top
+          %p
+            Jérôme Mahuet —
+            %br
+            hack <em>&amp;</em> design <em>since</em> 1986
+            
+        %nav.five.columns{:role => "main-navigation"}
+          %ul
+            %li
+              %a{:href => "http://phollow.fr", :title => "blog"}
+                %span.icon.icon-blog
+                %span Blog
+            %li
+              %a.disabled{:href => "#", :title => "Projects"}
+                %span.icon.icon-projects
+                %span Projects
+            %li
+              %a{:href => "/", :title => "About"}
+                %span.icon.icon-about
+                %span About
+              
+      %section.container{:role => "main"}
+        %article.ten.columns
+          %h2.first-heading About me
+          %img.me{:alt => "Jérôme Mahuet", :src => "/images/meh.png"}
+            %p
+              My name is 
+              <strong>Jérôme Mahuet</strong>, I am a twenty-five year-old 
+              developer with sharp design sensibilities. I sit on the fence of 
+              both worlds. I’m the kind of guy who learns everything by 
+              himself, and each project is a way to push further my knowledge. 
+              I’m currently living in Limoges, France. When offline I like 
+              photography, reading and playing video games. What a <strong> 
+              nerd</strong> indeed.
+              %br
+              Oh… and I <em>hate</em> when a designer put Lobster everywhere.
+            
+          %h2 Skills
+          %p
+            %h6 HTML5 / CSS3 / Javascript
+            %span.progress-bar.blue.stripes
+              %span{:style => 'width: 90%;'}
+              
+            %h6 PHP
+            %span.progress-bar.blue.stripes
+              %span{:style => 'width: 100%;'}
+              
+            %h6 Python
+            %span.progress-bar.blue.stripes
+              %span{:style => 'width: 80%;'}
+              
+            %h6 Ruby
+            %span.progress-bar.blue.stripes
+              %span{:style => 'width: 60%;'}
+            
+            %h6 Objective-C
+            %span.progress-bar.blue.stripes
+              %span{:style => 'width: 80%;'}
+            
+            %h6 Photoshop
+            %span.progress-bar.blue.stripes
+              %span{:style => 'width: 60%;'}
+            
+          - if @rss
+            %h2 Latest articles
+            %p
+              I also write <em>often</em> about developer topics on my personal 
+              web blog. Actually <em>mostly</em> about developer stuff… There 
+              is also some typographical goodness in it. But be warned, this is 
+              written in French.
+            %ul{:role => 'articles-list'}
+            - @rss.each do |entry|
+              %li
+                %a{:target => '_blank', :title => entry['title'], :href => entry['feedburner_origlink']}
+                  =entry['title']
+                  
+        %aside.six.columns
+          %h5 About this website
+          %p 
+            This site was made on a <a href="http://www.apple.com" 
+            title="Apple">Mac</a>, designed in browser and <a 
+            href="http://www.adobe.com/products/photoshop.html" 
+            title="Photoshop">Photoshop</a> (for the fancy logos). Responsive  
+            theme by yours truly. Versioned with <a href="http://git-scm.com/" 
+            title="Git">Git</a>. It is powered by <a href="http://python.org/" 
+            title="Python">Python</a> and the <a href="http://flask.pocoo.org/" 
+            title="Flask">Flask</a> micro-framework. Edited with <a 
+            href="http://macromates.com/" title="TextMate">TextMate 2</a>. The 
+            source code is hosted on <a 
+            href="https://github.com/Rydgel/Personal-Website" 
+            title="Github">Github</a>, take a look.
+          
+          %h5 Hosting
+          %p 
+            Everything is hosted painlessly on a cloud platform called <a 
+            href="http://www.heroku.com/" title="Heroku">Heroku</a>  
+            (pronounced her-OH-koo). It’s a fun way of building and deploying 
+            web apps.
+          
+          %h5 Fonts
+          %p 
+            All fonts are served up by the wonderful <a 
+            href="http://typekit.com/" title="Typekit">Typekit</a>. 
+            Body copy is the awesome <a href="http://bit.ly/ys97uc" 
+            title="FF Quadraat Web"> FF Quadraat Web</a> by 
+            <a href="http://typedia.com/explore/designer/fred-smeijers/" 
+            title="Fred Smeijers">Fred Smeijers</a>.
+          
+          - if @dribbble
+            %h5 Latest Dribbble shot
+            %section.clearfix{:role => "dribbble-wrapper"}
+              - @dribbble.each do |dribbble_shot|
+                %a{:target => '_blank', :href => dribbble_shot['url']}
+                  %img.dribbble-shot{:src => dribbble_shot['image_teaser_url']}
+          
+          %h5 Social <em>&amp;</em> contact links
+          %ul{:role => 'social-links'}
+            %li
+              %a{:role => 'twitter', :href => 'http://twitter.com/phollow'}
+            %li
+              %a{:role => 'dribbble', :href => 'http://dribbble.com/phollow'}
+            %li
+              %a{:role => 'facebook', :href => 'http://facebook.com/rydgel'}
+            %li
+              %a{:role => 'instagram', :href => 'http://statigr.am/rydgel'}
+            %li
+              %a{:role => 'flickr', :href => 'http://flickr.com/rydgel'}
+            %li
+              %a{:role => 'mail', :href => 'mailto:rydgel@phollow.fr'}
+        
+        %footer.container{:role => 'contentinfo'}
+          %section.twelve.columns{:role => 'footer-wrapper'}
+            %nav{:role => 'navigation'}
+              %ul
+                %li
+                  %a{:href => '/'}
+                    Home
+                %li
+                  %a{:href => 'http://phollow.fr'}
+                    Blog
+                %li
+                  %a{:href => 'http://twitter.com/phollow'}
+                    Follow me 
+                    - if @twitter
+                      &mdash; 
+                      :numbers
+                        #{@twitter}
+            %p © 2012 Jérôme Mahuet, built with love.
+          
+          %section.four.columns{:role => 'logo'}
+            %img{:src => '/images/CSS3_Logo_50.png', :alt => 'CSS'}
+            %img{:src => '/images/HTML5_Logo_50.png', :alt => 'HTML5'}
+    
+    
+    %script{:src => "http://use.typekit.com/ucx2ahr.js"}
+    :javascript
+      try{Typekit.load();}catch(e){}
